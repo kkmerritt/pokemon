@@ -1,0 +1,186 @@
+*{
+  font-family: 'Knewave', cursive;
+  text-shadow: 2px 2px 8px #000022;
+}
+
+html {
+  background-color: black;
+}
+body {
+  color: black;
+  width: 850px;
+  height: 500px;
+  background-image:url("../img/background.jpg");
+  background-repeat: no-repeat;
+}
+section{
+  text-align: center;
+}
+p {
+margin: 0;
+color:red;
+}
+.player{
+  color: blue;
+}
+.autoplayer {
+  color: red;
+}
+.card, .currentcard, .comp-card, .card0, .card1, .card2 {
+  width: 75px;
+  height: 95px;
+  padding-left: 10px;
+  padding-right: 10px;
+  transition: transform ease-in-out .125s;
+}
+
+.card0:hover , .card1:hover, .card2:hover, .card:hover {
+  transform: scale(4,4);
+  z-index: 2;
+}
+
+.button {
+  height: 110px;
+  width: 220px;
+  font-size: 2em;
+   margin-top: -320px;
+   margin-left: 100px;
+   border: solid 4px rgba(0,0,0,1);
+   display: none;
+   position: fixed;
+   text-shadow: 3px 3px 3px rgba(1,1,1,1);
+   transition: background-color 1s ease;
+
+}
+.button:hover {
+   background-color:red;
+}
+
+.windiv {
+  font-size: 3em;
+  margin-top: -80px;
+  text-align: center;
+  color: whitesmoke;
+}
+
+#playerscore {
+  padding-left:15px;
+}
+#scoreboard {
+  height: 100px;
+  width: 150px;
+  position:fixed;
+  margin-top: 0px;
+  margin-left: 5px;
+}
+
+#autoplayer-cards{
+  display:inline-flex;
+  margin-left: 289px;
+  margin-top: 5px;
+  width: 500px;
+  height: 100px;
+}
+
+#in-play {
+  position: fixed;
+  height: 270px;
+  width: 200px;
+  margin-left: 330px;
+  margin-top: -380px;
+  background-color: cadetblue;
+  border-style:solid;
+  opacity: .6;
+  z-index: auto;
+}
+#computer-move {
+  margin-top: -230px;
+}
+
+#player-move {
+margin-top: 150px;
+}
+
+#player-cards {
+  display:inline-flex;
+  margin-left: 290px;
+  margin-top: 275px;
+  width: 500px;
+  height: 100px;
+}
+
+#press-enter{
+  height: 30px;
+  width: 165px;
+  position:fixed;
+  color: white;
+  margin-top: -30px;
+  margin-left: 5px;
+}
+
+#charizard2 {
+  position:fixed;
+  margin-left: 10px;
+  margin-top: 190px;
+}
+#pikachu2{
+  position: fixed;
+  margin-left: -160px;
+  margin-top: 69px;
+}
+
+
+#Bulbasaur {
+  background-image: url('img/rattata.jpg');
+}
+#Caterpie {
+  background-image: url('img/caterpie.jpg');
+}
+#Charmander {
+  background-image: url('img/rattata.jpg');
+}
+#Clefairy {
+  background-image: url('img/clefairy.jpg');
+}
+#Jigglypuff {
+  background-image: url('img/jigglypuff.jpg');
+}
+#Mankey {
+  background-image: url('img/mankey.jpg');
+}
+#Meowth {
+  background-image: url('img/meowth.jpg');
+}
+#NidoranMale {
+  background-image: url('img/nidoran-male.jpg');
+}
+#NidoranFemale {
+  background-image: url('img/nidoran-female.jpg');
+}
+#Oddish {
+  background-image: url('img/oddish.jpg');
+}
+#Pidgey {
+  background-image: url('img/pidgey.jpg');
+}
+#Pikachu {
+  background-image: url('img/pikachu.jpg');
+}
+#Poliwag {
+  background-image: url('img/poliwag.jpg');
+}
+#Psyduck {
+  background-image: url('img/psyduck.jpg');
+}
+#Rattata {
+  background-image: url('img/rattata.jpg');
+}
+#Squirtle {
+  background-image: url('img/squirtle.jpg');
+}
+#Vulpix {
+  background-image: url('img/vulpix.jpg');
+}
+#Weedle {
+  background-image: url('img/weedle.jpg');
+}
