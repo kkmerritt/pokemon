@@ -10,7 +10,6 @@ var express      = require('express'),
   session        = require('express-session'),
   User           = require('./models/user.js'),
   logger         = require('./lib/logger.js'),
-  eyes           = require('eyespect'),
 
 PORT = process.env.PORT || 3000, server = express(),
 MONGOURI = process.env.MONGOLAB_URI || "mongodb://localhost:27017/pokemon",
