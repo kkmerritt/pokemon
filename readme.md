@@ -13,7 +13,7 @@ drinking: CuP on Norman Coffee, Bells Two-Hearted Ale, Sorrow.
 eating: marshmallows from swiss miss hot cocoa packets.
 
 # CREDITS:
-[Bootstrap](http://getbootstrap.com/) Bootstrap framework by: [Mark Otto] and [Jacob Thorton]
+[NOT REAL](http://borntired.net/) BornTired Framework by Kevin Merritt
 
 
 # GIT HUB / WIREFRAME IMAGES

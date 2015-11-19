@@ -1,7 +1,6 @@
 // NOTE: ----------------------  Kevin Merritt
 // NOTE: ----------------------  Pokemon Project
 // NOTE: ----------------------  app.js
-  alert('gotcha, motherfucker!')
 var express      = require('express'),
   ejs            = require('ejs'),
   bodyParser     = require('body-parser'),
@@ -32,7 +31,6 @@ server.use(bodyParser.urlencoded({extended: true})); // So we can parse incoming
 server.use(methodOverride('_method'));
 server.use(morgan('dev'));
 server.use(expressLayouts);
-
 server.use(logger);
 
 // NOTE: ---------------------- Server & Database Connections
