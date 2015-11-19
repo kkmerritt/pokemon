@@ -1,0 +1,18 @@
+{
+  "name": "pokemon",
+  "version": "1.0.0",
+  "description": "pokemon game on express server",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "kevin k. merritt",
+  "license": "MIT",
+  "dependencies": {
+    "body-parser": "^1.14.1",
+    "express": "^4.13.3",
+    "express-ejs-layouts": "^2.0.0",
+    "mongoose": "^4.2.6",
+    "morgan": "^1.6.1"
+  }
+}
