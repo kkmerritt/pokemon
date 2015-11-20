@@ -84,7 +84,7 @@ function play(){
   $(".button").on("click", function(e){
     $('.windiv').empty();
     winner(),
-      $('body').append("<div class='windiv'>" + turnwin + " " + roundwin + "</div>")
+      $('footer').append("<div class='windiv'>" + turnwin + " " + roundwin + "</div>")
       setTimeout(function(){$('.windiv').remove()}, 2000);
     $('.button').css("display", "none")
 

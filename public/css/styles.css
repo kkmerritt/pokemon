@@ -1,24 +1,48 @@
-*{
-  font-family: 'Knewave', cursive;
-  text-shadow: 2px 2px 8px #000022;
+* {
+  box-sizing: border-box;
+  margin: 0px;
 }
 
 html {
-  background-color: black;
+  font-size: 62.5%;
+  padding: 3%;
+  background-color: white;
+  font-family: 'Knewave', cursive;
+  text-shadow: 1px 1px 5px #000022;
 }
 body {
-  color: black;
+  margin:auto;
+  color: white;
   width: 850px;
   height: 500px;
+  /*background-image:url("../img/background.jpg");
+  background-repeat: no-repeat;*/
+}
+main {
   background-image:url("../img/background.jpg");
   background-repeat: no-repeat;
+}
+header {
+  background-color: red;
+  font-size: 2rem;
+}
+
+footer {
+  background-color: red;
+    min-height: 4rem;
+  font-size: 2rem;
+}
+
+.windiv {
+  font-size: 2rem;
+  text-align: center;
+  color: whitesmoke;
 }
 section{
   text-align: center;
 }
 p {
-margin: 0;
-color:red;
+  color:red;
 }
 .player{
   color: blue;
@@ -40,28 +64,21 @@ color:red;
 }
 
 .button {
-  height: 110px;
-  width: 220px;
-  font-size: 2em;
-   margin-top: -320px;
-   margin-left: 100px;
-   border: solid 4px rgba(0,0,0,1);
-   display: none;
-   position: fixed;
-   text-shadow: 3px 3px 3px rgba(1,1,1,1);
-   transition: background-color 1s ease;
+  height: auto;
+  width: auto;
+  font-size: 3rem;
+  border: solid 4px rgba(0,0,0,1);
+  display: none;
+  position: fixed;
+  text-shadow: 3px 3px 3px rgba(1,1,1,1);
+  transition: background-color 1s ease;
 
 }
 .button:hover {
-   background-color:red;
+  background-color:red;
 }
 
-.windiv {
-  font-size: 3em;
-  margin-top: -80px;
-  text-align: center;
-  color: whitesmoke;
-}
+
 
 #playerscore {
   padding-left:15px;
@@ -98,7 +115,7 @@ color:red;
 }
 
 #player-move {
-margin-top: 150px;
+  margin-top: 150px;
 }
 
 #player-cards {
@@ -112,7 +129,7 @@ margin-top: 150px;
 #press-enter{
   height: 30px;
   width: 165px;
-  position:fixed;
+  position: fixed;
   color: white;
   margin-top: -30px;
   margin-left: 5px;
