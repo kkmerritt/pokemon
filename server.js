@@ -13,6 +13,7 @@ var express        = require('express'),
     User           = require('./models/user.js'),
     logger         = require('./lib/logger.js'),
     eyes           = require('eyespect'),
+    partial        = require('express-partial'),
 
 PORT = process.env.PORT || 3000, server = express(),
 MONGOURI = process.env.MONGOLAB_URI || "mongodb://localhost:27017/pokemon",
@@ -27,6 +28,8 @@ server.use(session({
   resave: true,
   saveUninitialized: true
 }));
+
+server.use(partial());
 
 server.use(express.static(__dirname + '/public')); //location for static files (e.g. css, js, img)
 server.use(bodyParser.urlencoded({extended: true})); // So we can parse incoming forms into Objects
@@ -57,6 +60,25 @@ server.get('/logoff', function(req,res){
   res.render('logoff')
 })
 
+// display the submit user form (initial page)
+// construct a new user object, upload to DB.
+// set the session, so that the user (.email) persists throughout website
+server.post('/', function(req, res){
+  var thisLogin = req.body.user;
+  User.findOne({username: thisLogin.username}, function(err, thisUser){
+      if (thisUser && thisUser.password === thisLogin.password){
+        console.log('user has signed in...maybe'),
+        req.session.currentUser = thisUser.username,
+        server.locals.username = thisUser.username, //app.locals are persistent variables. always available.
+        console.log('currentUser' + server.locals.username),
+
+        res.render("game", {currentUser: server.locals.username});
+    } else {
+      console.log("USER SIGN IN ERROR: fuck's sake. ");
+      res.render('index');
+    }
+  });
+});
 // display the submit user form
 server.get('/users/newuser', function(req,res){
   if (req.session.currentUser){ res.render("welcome")}
@@ -69,6 +91,6 @@ server.post('/users/newuser', function(req, res){
   var newUser = new User(req.body.user);
   newUser.save(function(err, thisUser){
     if(err){console.log("NEW USER ENTRY ERROR: for fuck's sake. "), res.redirect(302,"/users/newuser");}
-    else {console.log("NEW DB USER Document Processed", thisUser), res.render("users/verify")};
+    else {console.log("NEW DB USER Document Processed", thisUser), res.render("game")};
   })
-})
+});

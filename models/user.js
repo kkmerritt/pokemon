@@ -5,7 +5,8 @@ var userSchema = new Schema ({
   username:  String,
   password:  String,
   wins: Number,
-  losses: Number
+  losses: Number,
+  pokemoncards: Array
 },{collection: 'user', strict: false})
 
 var User = mongoose.model("user", userSchema);
