@@ -33,6 +33,7 @@ width: auto;
 }
 
 footer {
+  display: flex;
   background-color: red;
     min-height: 4rem;
   font-size: 2rem;

@@ -1,4 +1,7 @@
 <footer>
 <button class="button">PLAY CARD!</button>
 <h1>  current user: <%- currentUser %> </h1>
+<% if (currentUser != "Guest"){ %>
+  <a href="/users/:id">USER DATA</a>
+   <% } %>
 </footer>

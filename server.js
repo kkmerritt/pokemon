@@ -77,7 +77,7 @@ server.post('/', function(req, res){
         res.render("game", {currentUser: server.locals.username});
     } else {
       console.log("USER SIGN IN ERROR: fuck's sake. ");
-      res.render('index');
+      res.render('404');
     }
   });
 });
@@ -100,3 +100,14 @@ server.post('/users/newuser', function(req, res){
       res.render("index", {currentUser: server.locals.username})}
   })
 });
+
+server.get('/users/:id', function(req, res){
+  if (req.session.currentUser){
+    var thisLogin = req.session.currentUser;
+    User.findOne({ username: thisLogin },
+      function(err, userData){
+        res.json(userData)
+      })
+  }
+  else { res.write("Not Logged in")}
+})
