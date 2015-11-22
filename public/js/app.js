@@ -1,11 +1,11 @@
 // initialize
-  dealtCards = [];
-  playercards = [];
-  computercards = [];
-  computerwins = 0;
-  playerwins = 0;
-  computerDiv = null;
-  playerDiv = null;
+dealtCards = [];
+playercards = [];
+computercards = [];
+computerwins = 0;
+playerwins = 0;
+computerDiv = null;
+playerDiv = null;
 // end initializing
 
 playGame()
@@ -21,11 +21,11 @@ function playGame(){
   $('#player-cards').empty();
   $('#computer-cards').empty();
 
-        dealComputer();
-        dealPlayer();
-        setTimeout(renderPlayer, 10);
-        setTimeout(renderComputer, 15);
-        setTimeout(play, 20);
+  dealComputer();
+  dealPlayer();
+  setTimeout(renderPlayer, 10);
+  setTimeout(renderComputer, 15);
+  setTimeout(play, 20);
 }
 
 
@@ -66,9 +66,10 @@ function play(){
   $(".button").on("click", function(e){
     $('.windiv').empty();
     winner(),
-      $('footer').append("<div class='windiv'>" + turnwin + " " + roundwin + "</div>")
-      setTimeout(function(){$('.windiv').remove()}, 2000);
+    $('footer').append("<div class='windiv'>" + turnwin + " " + roundwin + "</div>")
+    setTimeout(function(){$('.windiv').remove()}, 2000);
     $('.button').css("display", "none");
+    setTimeout(playGame, 1000); // // NOTE: put this on a mouse event button
 
   })
 }//end of function play()
@@ -104,57 +105,55 @@ function computerPick(){
 
   function renderPlayer(){
     $('#player-cards').empty();
+    // console.log('rendering player cards: ' + playercurrent3inlc[i]);
+    $('#player-cards').append("<img class='card0' src='img/"+playercurrent3inlc[0]+".jpg'>");
+    $('#player-cards').append("<img class='card1' src='img/"+playercurrent3inlc[1]+".jpg'>");
+    $('#player-cards').append("<img class='card2' src='img/"+playercurrent3inlc[2]+".jpg'>");
 
-      // console.log('rendering player cards: ' + playercurrent3inlc[i]);
-      $('#player-cards').append("<img class='card0' src='img/"+playercurrent3inlc[0]+".jpg'>");
-      $('#player-cards').append("<img class='card1' src='img/"+playercurrent3inlc[1]+".jpg'>");
-      $('#player-cards').append("<img class='card2' src='img/"+playercurrent3inlc[2]+".jpg'>");
 
+  }//end rendering
 
-    }//end rendering
+  function renderComputer(){
+    $('#computer-cards').empty();
 
-    function renderComputer(){
-      for (var i = 0; i < 3; i++){$('#computer-cards').append("<img class ='comp-card' src='img/cardback.png'>")}
-    }//end rendering
+    for (var i = 0; i < 3; i++){$('#computer-cards').append("<img class ='comp-card' src='img/cardback.png'>")}
+  }//end rendering
 
-    function playerChoice(tempcard){
-      $('#player-move').empty();
-      $('#player-move').append("<img class='card' src='img/"+tempcard.Name.toLowerCase()+".jpg'>")
-      $('#in-play').css('opacity','.8')
+  function playerChoice(tempcard){
+    $('#player-move').empty();
+    $('#player-move').append("<img class='card' src='img/"+tempcard.Name.toLowerCase()+".jpg'>")
+    $('#in-play').css('opacity','.8')
 
-    }
-    function computerChoice(){
-      $('#computer-move').empty();
-      $('#computer-move').append("<img class ='comp-card' src='img/cardback.png'>")
-      $('#in-play').css('opacity','.8')
-    }
+  }
+  function computerChoice(){
+    $('#computer-move').empty();
+    $('#computer-move').append("<img class ='comp-card' src='img/cardback.png'>")
+    $('#in-play').css('opacity','.8')
+  }
 
-    function winner(){
-      var loop = true;
-      var playerpoints = playerturncard.HP
-      var computerpoints = computerturncard.HP
-      $('#computer-move').empty();
-      $('#computer-move').append("<img class ='card' src='img/"+computerturncard.Name.toLowerCase()+".jpg'>");
+  function winner(){
+    var loop = true;
+    var playerpoints = playerturncard.HP
+    var computerpoints = computerturncard.HP
+    $('#computer-move').empty();
+    $('#computer-move').append("<img class ='card' src='img/"+computerturncard.Name.toLowerCase()+".jpg'>");
 
-      while (loop){
-        if (computerturncard.Speed > playerturncard.Speed){
-          playerpoints = playerpoints - computerturncard.Damage;
-          if (playerpoints < 0) {roundwin = computerturncard.Name;
-            turnwin = "Computer Won with ";
-            computerwins = computerwins + 1;
-            console.log('computerwins is ' + computerwins);
-
-            playGame();
-
-          break;}}
-          else if (computerturncard.Speed < playerturncard.Speed){
-              computerpoints = computerpoints - playerturncard.Damage;
-              if (computerpoints < 0){roundwin = playerturncard.Name;
-                turnwin = "You Won with ";
-                playerwins = playerwins + 1;
-                console.log('playerwins is ' + playerwins)
-
-                playGame();
-              break}}
-              }
-            } //end winner
+    while (loop){
+      if (computerturncard.Speed > playerturncard.Speed){
+        playerpoints = playerpoints - computerturncard.Damage;
+        if (playerpoints < 0) {roundwin = computerturncard.Name;
+          turnwin = "Computer Won with ";
+          computerwins = computerwins + 1;
+          console.log('computerwins is ' + computerwins);
+          break;}
+        }
+        else if (computerturncard.Speed < playerturncard.Speed){
+          computerpoints = computerpoints - playerturncard.Damage;
+          if (computerpoints < 0){roundwin = playerturncard.Name;
+            turnwin = "You Won with ";
+            playerwins = playerwins + 1;
+            console.log('playerwins is ' + playerwins)
+            break;}
+          }
+        }
+      } //end winner
