@@ -1,11 +1,20 @@
-<form action="/" method="post">
-  <br><br><br>
+<br><br>
+<form action="/" method="POST" target="_blank" accept-charset="UTF-8"
+enctype="application/x-www-form-urlencoded" novalidate>
+<fieldset>
+  <legend>SIGN IN:</legend>
+
   USERNAME:<br>
-  <input type="text" name="user[username]" value="SpaceHog22">
+  <input type="text" name="user[username]" value="<%- currentUser %>">
   <br>
   PASSWORD:<br>
-  <input type="text" name="user[password]" value="Mouse1">
+  <input type="text" name="user[password]" value="password">
   <br><br>
   <input type="submit" value="Submit">
+  </fieldset>
 </form>
+<br><br>
+<br><br>
+
 <h1><a href="/users/newuser"> R E G I S T E R </a></h1>
+<br><br>

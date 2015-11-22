@@ -81,9 +81,9 @@ server.post('/', function(req, res){
     }
   });
 });
-// display the submit user form
+
 server.get('/users/newuser', function(req,res){
-  if (req.session.currentUser){ res.render("welcome")}
+  if (req.session.currentUser){ res.render("game")}
   else {res.render('users/newuser');}
 });
 
@@ -92,7 +92,11 @@ server.post('/users/newuser', function(req, res){
   if (req.body.user.password == ""){res.redirect(302, "/404");}
   var newUser = new User(req.body.user);
   newUser.save(function(err, thisUser){
-    if(err){console.log("NEW USER ENTRY ERROR: for fuck's sake. "), res.redirect(302,"/users/newuser");}
-    else {console.log("NEW DB USER Document Processed", thisUser), res.render("game")};
+    if(err){console.log("NEW USER ENTRY ERROR: for fuck's sake. "), res.redirect(302,"/404");}
+    else {
+      console.log("NEW DB USER Document Processed & signed in", thisUser),
+      req.session.currentUser = thisUser.username,
+      server.locals.username = thisUser.username, //app.locals are persistent variables. always available.
+      res.render("index", {currentUser: server.locals.username})}
   })
 });

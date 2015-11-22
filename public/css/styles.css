@@ -83,7 +83,9 @@ p {
   background-color:red;
 }
 
-
+#logoff    {
+margin:auto;
+}
 
 #playerscore {
   padding-left:15px;
