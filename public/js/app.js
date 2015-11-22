@@ -26,12 +26,13 @@ var pokemons = [
   {Name: 'Poliwag', HP: 40, Damage: 50, Speed: 91 }
 ]
 
-
-// initialize arrays
+// initialize
   dealtCards = [];
   playercards = [];
   computercards = [];
-// end initializing arrays
+  computerwins = 0;
+  playerwins = 0;
+// end initializing
 
   resetGame()
   playGame();
@@ -152,11 +153,17 @@ function computerPick(){
           playerpoints = playerpoints - computerturncard.Damage;
           if (playerpoints < 0) {roundwin = computerturncard.Name;
             turnwin = "Computer Won with ";
+            computerwins = computerwins + 1;
+            console.log('computerwins is ' + computerwins)
+
           break;}}
           else if (computerturncard.Speed < playerturncard.Speed){
               computerpoints = computerpoints - playerturncard.Damage;
               if (computerpoints < 0){roundwin = playerturncard.Name;
                 turnwin = "You Won with ";
+                playerwins = playerwins + 1;
+                console.log('playerwins is ' + playerwins)
+
               break}}
               }
             } //end winner

@@ -12,8 +12,9 @@ var express        = require('express'),
     session        = require('express-session'),
     User           = require('./models/user.js'),
     logger         = require('./lib/logger.js'),
-    eyes           = require('eyespect'),
+    // eyes           = require('eyespect'),
     partial        = require('express-partial'),
+    // pokemons       = require('./lib/pokemons.js'),
 
 PORT = process.env.PORT || 3000, server = express(),
 MONGOURI = process.env.MONGOLAB_URI || "mongodb://localhost:27017/pokemon",
@@ -47,6 +48,7 @@ var db = mongoose.connection;
 db.on('error', function(){console.log("DATABASE: CONNECTION ERROR: for fuck's sake. " + dbname)})
 db.once('open', function(){console.log("DATABASE: CONNECTED: " + dbname)})
 
+currentUser = "Guest"
 
 // NOTE: ---------------------- Server Routes
 server.get('/', function(req, res){res.render('index');});
@@ -56,8 +58,8 @@ server.get('/404', function(req,res){res.render('404')})//error page.
 //log off function, destroys local variables and the session. restricts commenting / post submission
 server.get('/logoff', function(req,res){
   req.session.destroy();
-  server.locals.username = null;
-  res.render('logoff')
+  server.locals.username = "Logged Out";
+  res.render('index')
 })
 
 // display the submit user form (initial page)

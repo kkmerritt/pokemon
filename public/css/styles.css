@@ -24,6 +24,12 @@ main {
 header {
   background-color: red;
   font-size: 2rem;
+  display: flex;
+  justify-content: space-around;
+    }
+
+#logoff {
+width: auto;
 }
 
 footer {
@@ -40,6 +46,7 @@ footer {
 section{
   text-align: center;
 }
+
 p {
   color:red;
 }
@@ -71,7 +78,6 @@ p {
   position: fixed;
   text-shadow: 3px 3px 3px rgba(1,1,1,1);
   transition: background-color 1s ease;
-
 }
 .button:hover {
   background-color:red;
@@ -99,7 +105,7 @@ p {
 }
 
 #in-play {
-  position: fixed;
+  position: absolute;
   height: 270px;
   width: 200px;
   margin-left: 330px;
@@ -135,12 +141,12 @@ p {
 }
 
 #charizard2 {
-  position:fixed;
+  position:absolute;
   margin-left: 10px;
   margin-top: 190px;
 }
 #pikachu2{
-  position: fixed;
+  position: absolute;
   margin-left: -160px;
   margin-top: 69px;
 }
