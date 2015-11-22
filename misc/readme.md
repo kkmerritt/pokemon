@@ -27,3 +27,9 @@ created a stupid logger
 
 # FUTURE IMPROVEMENTS:
 improve cross-platform responsiveness
+<!-- // NOTE: add instructions modal.
+// NOTE: update score in the corner
+// NOTE: add remaining cards (or maybe even a dealt cards stack on other side?)
+// NOTE: add card stats for playerturncard
+// NOTE: add a game winner function for when the cards are exhausted.
+// NOTE: update the cards, maybe make a secret code that throws nude cards into the mix? -->

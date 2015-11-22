@@ -12,9 +12,7 @@ var express        = require('express'),
     session        = require('express-session'),
     User           = require('./models/user.js'),
     logger         = require('./lib/logger.js'),
-    // eyes           = require('eyespect'),
     partial        = require('express-partial'),
-    // pokemons       = require('./lib/pokemons.js'),
 
 PORT = process.env.PORT || 3000, server = express(),
 MONGOURI = process.env.MONGOLAB_URI || "mongodb://localhost:27017/pokemon",
@@ -72,7 +70,7 @@ server.post('/', function(req, res){
         console.log('user has signed in...maybe'),
         req.session.currentUser = thisUser.username,
         server.locals.username = thisUser.username, //app.locals are persistent variables. always available.
-        console.log('currentUser' + server.locals.username),
+        // console.log('currentUser' + server.locals.username),
 
         res.render("game", {currentUser: server.locals.username});
     } else {

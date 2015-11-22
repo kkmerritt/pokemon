@@ -4,23 +4,22 @@
   computercards = [];
   computerwins = 0;
   playerwins = 0;
-  computerDiv = null;
-  playerDiv = null;
 // end initializing
 
-playGame()
+resetGame()
 
+function resetGame() {
+    console.log("game is being reset")
+    $('#computer-move').empty();
+    $('#player-move').empty();
+
+    computerturncard = [];
+    card = [];
+    playercurrent3inlc = [];
+    playGame();
+}
 
 function playGame(){
-  console.log("game is being reset")
-  $('#computer-move').empty();
-  $('#player-move').empty();
-
-  computerturncard = [];
-  card = [];
-  $('#player-cards').empty();
-  $('#computer-cards').empty();
-
         dealComputer();
         dealPlayer();
         setTimeout(renderPlayer, 10);
@@ -77,8 +76,6 @@ function play(){
 
 // Functions!
 function dealPlayer() {
-  playercards = [];
-  playercurrent3inlc = [];
   for (var i = 0; i < 3; i++){
     var random = Math.floor(Math.random() * pokemons.length);
     dealtCards.push(pokemons[random]);
@@ -90,7 +87,6 @@ function dealPlayer() {
 }//end dealPlayer
 
 function dealComputer() {
-  computercards = [];
   for (var i = 0; i < 3; i++){
     var random = Math.floor(Math.random() * pokemons.length);
     dealtCards.push(pokemons[random]);
@@ -103,18 +99,14 @@ function computerPick(){
   computerturncard = computercards[Math.floor(Math.random()*3)]}
 
   function renderPlayer(){
-    $('#player-cards').empty();
-
-      // console.log('rendering player cards: ' + playercurrent3inlc[i]);
-      $('#player-cards').append("<img class='card0' src='img/"+playercurrent3inlc[0]+".jpg'>");
-      $('#player-cards').append("<img class='card1' src='img/"+playercurrent3inlc[1]+".jpg'>");
-      $('#player-cards').append("<img class='card2' src='img/"+playercurrent3inlc[2]+".jpg'>");
-
-
+    var playerDiv = $('#player-cards');
+    for (var i = 0; i < 3; i++){
+      $(playerDiv).append("<img class='card"+[i]+"' src='img/"+playercurrent3inlc[i]+".jpg'>");}
     }//end rendering
 
     function renderComputer(){
-      for (var i = 0; i < 3; i++){$('#computer-cards').append("<img class ='comp-card' src='img/cardback.png'>")}
+      var computerDiv = $('#computer-cards');
+      for (var i = 0; i < 3; i++){$(computerDiv).append("<img class ='comp-card' src='img/cardback.png'>")}
     }//end rendering
 
     function playerChoice(tempcard){
@@ -142,9 +134,7 @@ function computerPick(){
           if (playerpoints < 0) {roundwin = computerturncard.Name;
             turnwin = "Computer Won with ";
             computerwins = computerwins + 1;
-            console.log('computerwins is ' + computerwins);
-
-            playGame();
+            console.log('computerwins is ' + computerwins)
 
           break;}}
           else if (computerturncard.Speed < playerturncard.Speed){
@@ -154,7 +144,6 @@ function computerPick(){
                 playerwins = playerwins + 1;
                 console.log('playerwins is ' + playerwins)
 
-                playGame();
               break}}
               }
             } //end winner
